@@ -13,26 +13,26 @@ public class BFS_1325 {
     	String[] f_input = scan.nextLine().split(" ");
         int N = Integer.parseInt(f_input[0]);
         int M = Integer.parseInt(f_input[1]);
-        Map<Integer, ArrayList<Integer>> connectMap = new HashMap<Integer, ArrayList<Integer>>();
+        ArrayList<Integer> connect[] = new ArrayList[1001];
         for(int i = 0 ; i < M ; i++){
         	 String[] c_input = scan.nextLine().split(" ");
         	 int value = Integer.parseInt(c_input[0]);
              int key = Integer.parseInt(c_input[1]);
-        	 if(connectMap.get(key) == null){
+             if(connect[key] == null){
             	 ArrayList<Integer> values = new ArrayList<Integer>();
             	 values.add(value);
-            	 connectMap.put(key, values);
+            	 connect[key] = values;
              }else{
-            	 connectMap.get(key).add(value);
+            	 connect[key].add(value);
              }
         }
-        bfs(connectMap, N);
+        bfs(connect, N);
     }
 
-    static void bfs(Map<Integer, ArrayList<Integer>> connectMap, int N){
+    static void bfs(ArrayList<Integer> connectMap[], int N){
         int max = 0;
         int size = 0;
-        int[] save = new int[N];
+        int[] save = new int[N+1];
         for(int i = 1 ; i <= N ; i++){
             int count = 0;
             int[] visit = new int[N+1];
@@ -41,9 +41,9 @@ public class BFS_1325 {
             count++;
             while(!q.isEmpty()){
             	int f = q.poll();
-	            if(connectMap.get(f) != null){
-	                for(int j = 0 ; j < connectMap.get(f).size() ; j++) {
-	                	int temp = connectMap.get(f).get(j);
+	            if(connectMap[f] != null){
+	                for(int j = 0 ; j < connectMap[f].size() ; j++) {
+	                	int temp = connectMap[f].get(j);
 	                    if (visit[temp] == 0) {
 	                    	visit[temp] = 1;
 	                        q.add(temp);
