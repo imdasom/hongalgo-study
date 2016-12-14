@@ -1,0 +1,67 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
+import java.util.StringTokenizer;
+
+public class B11403 {
+	private static int[][] adjoinList;
+	private static int[][] availableList;
+	private static int[] visited;
+	private static int N;
+	
+	public static void main(String[] args) throws IOException{
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		N = Integer.parseInt(br.readLine());
+		
+		adjoinList = new int[N][N];
+		availableList = new int[N][N];
+		for(int i=0; i<N; i++){
+			String str = br.readLine();
+			StringTokenizer st = new StringTokenizer(str);
+			for(int j=0; j<N; j++){
+				adjoinList[i][j] = Integer.parseInt(st.nextToken());
+			}
+		}
+		
+		br.close();
+		
+		for(int i=0; i<N;i++){
+			bfs(i);
+			checkPath(i);
+			printLine(i);
+		}
+	}
+	
+	private static void checkPath(int num){
+		for(int i=0; i<N; i++){
+			if(visited[i] == 1){
+				availableList[num][i]=1;
+			}
+		}
+	}
+	
+	private static void printLine(int num){
+		for(int i=0; i<N;i++){
+			System.out.print(availableList[num][i] + " ");
+		}
+		System.out.println();
+	}
+	
+	private static void bfs(int num){
+		visited = new int[N];
+		Queue<Integer> q = new LinkedList<Integer>();
+		q.add(num);
+		while(!q.isEmpty()){
+			int polled = q.poll();
+			for(int i=0; i<N;i++){
+				if(adjoinList[polled][i] == 1 && visited[i] ==0){
+					visited[i] = 1;
+					q.add(i);
+				}
+			}
+		}
+	}
+}
