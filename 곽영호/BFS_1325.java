@@ -13,7 +13,7 @@ public class BFS_1325 {
     	String[] f_input = scan.nextLine().split(" ");
         int N = Integer.parseInt(f_input[0]);
         int M = Integer.parseInt(f_input[1]);
-        ArrayList<Integer> connect[] = new ArrayList[1001];
+        ArrayList<Integer> connect[] = new ArrayList[N+1];
         for(int i = 0 ; i < M ; i++){
         	 String[] c_input = scan.nextLine().split(" ");
         	 int value = Integer.parseInt(c_input[0]);
