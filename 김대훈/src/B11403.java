@@ -2,14 +2,12 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
 public class B11403 {
 	private static int[][] adjoinList;
 	private static int[][] availableList;
-	private static int[] visited;
 	private static int N;
 	
 	public static void main(String[] args) throws IOException{
@@ -30,16 +28,7 @@ public class B11403 {
 		
 		for(int i=0; i<N;i++){
 			bfs(i);
-			checkPath(i);
 			printLine(i);
-		}
-	}
-	
-	private static void checkPath(int num){
-		for(int i=0; i<N; i++){
-			if(visited[i] == 1){
-				availableList[num][i]=1;
-			}
 		}
 	}
 	
@@ -51,14 +40,13 @@ public class B11403 {
 	}
 	
 	private static void bfs(int num){
-		visited = new int[N];
 		Queue<Integer> q = new LinkedList<Integer>();
 		q.add(num);
 		while(!q.isEmpty()){
 			int polled = q.poll();
 			for(int i=0; i<N;i++){
-				if(adjoinList[polled][i] == 1 && visited[i] ==0){
-					visited[i] = 1;
+				if(adjoinList[polled][i] == 1 && availableList[num][i]==0){
+					availableList[num][i] = 1;
 					q.add(i);
 				}
 			}
