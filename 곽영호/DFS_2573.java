@@ -1,5 +1,3 @@
-package DepthFirshSearch;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -68,16 +66,16 @@ public class DFS_2573 {
 	                		cnt++;
 	                	}
 	                }
-					if(cnt == 2){
+					if(cnt > 1){
 						break;
 					}
 	            }
 	            
-	            if(cnt == 2){
+	            if(cnt > 1){
 	            	System.out.print(year);
 	            	break;
 	            }else if(cnt == 0){
-					System.out.print("0");
+					System.out.print(cnt);
 					break;
 				}
 	            
