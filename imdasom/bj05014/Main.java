@@ -45,14 +45,12 @@ public class Main {
             if (caseUp <= F && visited[caseUp] == 0) {
                 q.offer(caseUp);
                 visited[caseUp] = visited[curS] + 1;
-                curS = caseUp;
             }
 
             int caseDown = curS - D;
             if (caseDown > 0 && visited[caseDown] == 0) {
                 q.offer(caseDown);
                 visited[caseDown] = visited[curS] + 1;
-                curS = caseDown;
             }
         }
         if(visited[G] == 0) System.out.println("use the stairs");
