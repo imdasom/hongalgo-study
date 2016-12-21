@@ -39,7 +39,7 @@ public class Main {
     public static void DFS(int i) {
         visited[i] = true;
         if (adj[i] == null) return;
-        (adj[i]).stream().filter(j -> !visited[j]).forEachOrdered(Main::DFS);
+        (adj[i]).stream().filter(Objects::nonNull).filter(j -> !visited[j]).forEachOrdered(Main::DFS);
     }
 
     public static void initValues() throws IOException {
