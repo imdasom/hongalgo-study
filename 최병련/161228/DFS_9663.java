@@ -9,7 +9,7 @@ import java.util.Scanner;
  * http://comganet.github.io/dfs/2016/06/03/dfs-1000
  *
  */
-public class DFS_2034
+public class DFS_9663
 {
 	static int result;	//퀸개수
 	static int N;		//입력값 N
