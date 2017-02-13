@@ -6,7 +6,6 @@ import java.util.Scanner;
  */
 public class Graph_11404 {
     static int[][] line = null;
-    static int[][] line_check = null;
     static int cityCnt = 0;
 
     public static void main(String[] args) {
@@ -14,7 +13,6 @@ public class Graph_11404 {
         cityCnt = scan.nextInt();
         int lineCnt = scan.nextInt();
         line = new int[cityCnt + 1][cityCnt + 1];
-        line_check = new int[cityCnt + 1][cityCnt + 1];
         scan.nextLine();
         for (int i = 0; i < lineCnt; i++) {
             String[] lineInfo = scan.nextLine().split(" ");
