@@ -11,6 +11,7 @@
 // http://yukari-ko.blogspot.kr/2014/08/9372.html
 
 #include <iostream>
+#include <stdio.h>
 using namespace std;
 
 int t;  //테스트케이스 갯수
